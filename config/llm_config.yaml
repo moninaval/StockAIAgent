@@ -1,0 +1,18 @@
+openai:
+  api_key: "your-api-key-here"
+  model: "gpt-3.5-turbo"
+  temperature: 0.7
+  max_tokens: 600
+
+prompts:
+  summarize_news: |
+    You are a financial assistant. Summarize the following news items for a human trader.
+
+  explain_prediction: |
+    Explain the following stock prediction to a retail investor in simple terms.
+
+  fundamentals_and_prediction: |
+    You are an expert stock market analyst. Given the company fundamentals (e.g., P/E ratio, earnings, debt, growth) and model prediction, analyze both and give your own prediction and investment insight. Be precise and avoid speculation.
+
+  generic: |
+    Please summarize the following text clearly and concisely.

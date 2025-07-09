@@ -1,0 +1,113 @@
+# 📈 StockAIagent: An Agentic AI System for Stock Analysis
+
+**StockAIagent** is a modular, multi-agent system built using CrewAI for stock trend prediction and analysis. It combines traditional machine learning (XGBoost) with LLM-powered agents to offer real-time predictions, sentiment analysis, financial summarization, and decision support.
+
+---
+
+## 🔧 Project Structure
+
+```
+StockAIagent/
+├── config/                  # YAML config for LLM
+├── data/                    # Data storage (CSV, summaries)
+├── logs/                    # Training and execution logs
+├── shared/
+│   └── llm_interface/       # Central LLM abstraction
+├── stock/
+│   ├── dataloader/          # Scripts to fetch stock data
+│   ├── model/               # XGBoost training and prediction
+│   └── agent/               # Agents that wrap ML components
+├── crewai/                  # CrewAI framework code
+│   ├── agent_definitions.py
+│   ├── tasks.py
+│   └── run_crewai.py
+```
+
+---
+
+## 🚀 Features
+
+- ✅ Real-time stock data fetching
+- ✅ Short-term trend prediction using XGBoost
+- ✅ Twitter/X sentiment analysis via LLM
+- ✅ Financial news summarization via LLM
+- ✅ Company fundamentals analysis
+- ✅ Final decision synthesis via LLM
+
+---
+
+## 🧠 CrewAI Agents
+
+1. **Market Predictor** – Predicts short-term trend
+2. **Twitter Sentiment Analyst** – Summarizes public opinion
+3. **News Analyst** – Extracts financial news highlights
+4. **Fundamentals Analyst** – Evaluates financial health
+5. **LLM Decision Assistant** – Merges everything into a final outlook
+
+---
+
+## 📦 Installation
+
+```bash
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+pip install -r requirements.txt
+```
+
+---
+
+## ⚙️ Usage
+
+### ✅ 1. Run all agents with CrewAI:
+```bash
+python crewai/run_crewai.py
+```
+
+### 🧪 2. Test individual agents manually:
+```bash
+python stock/agent/live_predict.py --symbol RELIANCE
+python stock/agent/twitter_sentiment_agent.py --symbol RELIANCE
+python stock/agent/news_summary_agent.py --symbol RELIANCE
+python stock/agent/fundamentals_agent.py --symbol RELIANCE
+python stock/agent/final_llm_prediction_agent.py --symbol RELIANCE
+```
+
+### 📊 3. Train model manually:
+```bash
+python stock/model/train_xgboost_model.py --symbol RELIANCE
+```
+
+---
+
+## 🔁 Data Handling
+- **CSV Storage**: One file per stock in `data/`
+- **Model Storage**: One model per stock in `stock/model/models/`
+- **Append Mode**: `live_predict.py` appends data continuously
+
+---
+
+## 🔍 LLM Config
+LLM config is stored in:
+```
+config/llm_config.yaml
+```
+Used by `shared/llm_interface/llm_interface.py` for all LLM calls.
+
+---
+
+## 📅 Future Enhancements
+- [ ] Streamlit dashboard
+- [ ] RAG-based knowledge grounding
+- [ ] Fine-tuned LLM for finance
+- [ ] Alerts & drift detection
+
+---
+
+## 👨‍💻 Authors
+- Naval Prasad
+- Built with ❤️ using CrewAI, OpenAI, and XGBoost
+
+---
+
+## 📜 License
+MIT License
